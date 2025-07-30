@@ -29,24 +29,23 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="App"> {/* ✅ Apply class for layout fix */}
       <Header />
-      <CreateArea onAdd={addNote} />
-
-      {/* ✅ Wrap notes in a container with Flexbox styling */}
-      <div className="notes-container">
-        {notes.map((note, index) => (
-          <Note
-            key={index}
-            id={index}
-            title={note.title}
-            content={note.content}
-            onDelete={deleteNote}
-            onEdit={editNote}
-          />
-        ))}
-      </div>
-
+      <main>
+        <CreateArea onAdd={addNote} />
+        <div className="notes-container">
+          {notes.map((note, index) => (
+            <Note
+              key={index}
+              id={index}
+              title={note.title}
+              content={note.content}
+              onDelete={deleteNote}
+              onEdit={editNote}
+            />
+          ))}
+        </div>
+      </main>
       <Footer />
     </div>
   );
